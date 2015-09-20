@@ -99,8 +99,8 @@ qplot(total.steps, xlab='Total Steps',
 </div>
 <div id="what-is-the-average-daily-activity-pattern" class="section level2">
 <h2>What is the average daily activity pattern?</h2>
-<div id="i-calculate-mean-steps-for-each-interval-and-build-a-dataframe" class="section level3">
-<h3>[i] Calculate mean steps for each interval and build a dataframe</h3>
+<div id="i-calculate-mean-steps-for-each-interval-to-build-a-dataframe" class="section level3">
+<h3>[i] Calculate mean steps for each interval to build a dataframe</h3>
 <pre class="r"><code>mean.steps &lt;- tapply(activity$steps, activity$time, mean, na.rm=TRUE)
 daily.pattern &lt;- data.frame(time=as.POSIXct(names(mean.steps)),
                             mean.steps=mean.steps)</code></pre>
@@ -142,8 +142,8 @@ format(daily.pattern[moststeps,'time'], format='%H:%M')</code></pre>
 <pre class="r"><code>activity.imputed &lt;- activity
 activity.imputed$steps &lt;- with(activity.imputed, impute(steps, mean))</code></pre>
 </div>
-<div id="ii-compare-mean-median-of-imputed-data-with-original-data" class="section level3">
-<h3>[ii] Compare Mean &amp; Median of Imputed data with Original data</h3>
+<div id="ii-compare-mean-median-of-imputed-vs-original-dataset" class="section level3">
+<h3>[ii] Compare Mean &amp; Median of (Imputed v/s Original dataset)</h3>
 <pre class="r"><code>total.steps.imputed &lt;- tapply(activity.imputed$steps, 
                               activity.imputed$date, sum)
 mean(total.steps)</code></pre>
@@ -188,8 +188,8 @@ day.type.pattern &lt;- data.frame(time=as.POSIXct(names(mean.steps)),
                                day.type=as.factor(c(rep('weekday', 288),
                                                    rep('weekend', 288))))</code></pre>
 </div>
-<div id="iii-look-at-the-plots-for-weekend-weekday" class="section level3">
-<h3>[iii] Look at the plots for weekend / weekday</h3>
+<div id="iii-draw-plots-for-weekend-weekday-comparison" class="section level3">
+<h3>[iii] Draw plots for weekend / weekday Comparison</h3>
 <pre class="r"><code>ggplot(day.type.pattern, aes(time, mean.steps)) + 
     geom_line() +
     xlab('Time of day') +

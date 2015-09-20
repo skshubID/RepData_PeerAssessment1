@@ -53,7 +53,7 @@ qplot(total.steps, xlab='Total Steps',
 
 ## What is the average daily activity pattern?
 
-### [i] Calculate mean steps for each interval and build a dataframe
+### [i] Calculate mean steps for each interval to build a dataframe
 
 
 ```r
@@ -126,7 +126,7 @@ activity.imputed <- activity
 activity.imputed$steps <- with(activity.imputed, impute(steps, mean))
 ```
 
-### [ii] Compare Mean & Median of Imputed data with Original data
+### [ii] Compare Mean & Median of (Imputed v/s Original dataset)
 
 
 ```r
@@ -205,7 +205,7 @@ day.type.pattern <- data.frame(time=as.POSIXct(names(mean.steps)),
                                                    rep('weekend', 288))))
 ```
 
-### [iii] Look at the plots for weekend / weekday
+### [iii] Draw plots for weekend / weekday Comparison
 
 
 ```r
